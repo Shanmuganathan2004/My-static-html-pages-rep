@@ -1,0 +1,295 @@
+/*___________________________________________________________________1st-page__________________________________________________________*/
+
+
+.child_2_sub_1 {
+  font-size: 75px;
+  font-weight: bold;
+  color: white;
+  width: 600px;
+  height: 350px;
+}
+
+
+.Menu {
+  color: white;
+  display:flex;
+  justify-content: space-between;
+}
+.logo{
+  padding-left: 50px;
+  padding-top: 30px;
+}
+.Menu ul {
+  padding-top: 20px;
+  color: white;
+  display: flex;
+  justify-content: flex-end;
+  gap: 70px;
+  font-size: 20px;
+  list-style-type: none;
+
+}
+.main_container_1{
+  background-image: url("1st-page-image.jpg");
+  background-size: cover;
+}
+
+.main_container_1-1{
+  display: flex;
+  flex-direction: column;
+   
+}
+
+.child_container_2 {
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+  height: 400px;
+  padding-left: 65px;
+  padding-top: 105px;
+  padding-bottom: 305px;
+}
+
+.subtext {
+  color: white;
+  font-size: 20px;
+}
+
+.child_2_sub_2 {
+  display: flex;
+  flex-direction: column;
+}
+.child_container_1 {
+  padding-right: 40px;
+}
+
+
+/*_______________________________________________________________________2nd page_________________________________________________________*/
+
+
+
+.main_container_2 {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin-top: 40px;
+  
+ 
+}
+.section-2 {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.title-page2 {
+  font-weight: bold;
+  font-size: 50px;
+}
+
+.para-page2 {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 500px;
+  font-size: 20px;
+  word-wrap: break-word;
+  
+
+}
+
+.image-page2 {
+  display: flex;
+  width: 400px;
+  height: 500px;
+}
+.img {
+  box-shadow: 20px 35px rgba(253, 218, 174, 255);
+}
+
+/*______________________________________________________________page2.2__________________________________________________________*/
+
+
+
+.section-2-2 {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row-reverse;
+}
+
+.title-page2-2 {
+  font-weight: bold;
+  font-size: 50px;
+  
+}
+
+.para-page2-2 {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  height: 500px;
+  font-size: 20px;
+  word-wrap: break-word;
+  
+}
+
+.image-page2-2 {
+  display: flex;
+  width: 400px;
+  height: 500px;
+  padding-top: 10px;
+}
+.img-2 {
+  box-shadow: -20px 35px rgba(253, 218, 174, 255);
+}
+
+
+
+/*_____________________________________________________________3rd-page____________________________________________________________________________*/
+
+
+
+.main_container_3{
+
+  display: flex;
+  flex-direction: column;
+
+}
+.location{
+  display: flex;
+  padding-left: 30px;
+  padding: 30px;
+  justify-content: space-evenly;
+
+
+}
+.title-3{
+
+font-size: large;
+font-weight: bold;
+font-size: 50px;
+padding-bottom: 10px;
+padding-left: 700px;
+color: sienna;
+}
+
+.ph-1{
+
+border-radius: 8px;
+  padding: 10px;
+  width: 30%;
+  text-align: left;
+  
+}
+.ph-2{
+border-radius: 8px;
+  padding: 10px;
+  width: 30%;
+  text-align: left;
+ 
+}
+.ph-3{
+
+border-radius: 8px;
+  padding: 10px;
+  width: 30%;
+  text-align: left;
+}
+
+.stretch{
+box-shadow: 0px 150px 0px rgba(255, 218, 185);
+border-radius: 8px;
+}
+
+
+
+/*_____________________________________________________________________4th-page_______________________________________________________*/
+
+.main_container_4{
+
+	display:flex;
+	flex-direction:column;
+
+}
+.cover{
+  display:flex;
+  background-color:rgba(255, 218, 185);
+  justify-content: space-around;
+  padding:70px;
+}
+.about-us{
+
+font-size: large;
+font-weight: bold;
+font-size: 50px;
+padding-bottom: 10px;
+padding-left: 700px;
+color: sienna;
+
+}
+.side-para{
+  display:flex;
+  flex-direction: column;
+  padding-left: 100px;
+}
+.side-para-topic{
+  font-weight: bold;
+  font-size: 50px;
+  color: sienna;
+  margin-top: -60px;
+}
+.side-para-text{
+  display:flex;
+  font-size: 22px ;
+  word-wrap: break-word;
+  color: brown;
+  margin-top: -30px;
+  width: 500px;
+  height: 300px;
+}
+
+/*__________________________________________________________5th-page_____________________________________________________*/
+
+.main_container_5{
+  display: flex;
+  justify-content: space-around;
+}
+.locate-1{
+  height: 400px;
+  width: 400px;
+
+}
+.locate-2{
+  height: 400px;
+  width: 400px;
+  
+
+}
+.tl-1{
+  list-style: none;
+}
+.tl-2{
+  list-style: none;
+}
+.tet-1{
+  font-size: 40px;
+  color: sienna;
+  padding-left: 30px;
+  padding-top: 40px;
+}
+.tet-2{
+  font-size: 40px;
+  color: sienna;
+  padding-left: 30px;
+  padding-top: 40px;
+}
+.tel-1-detail{
+  font-size: 30px;
+  color: brown;
+}
+.tel-2-detail{
+  font-size: 30px;
+  color: brown;
+}
+.body{
+  margin:0;
+}

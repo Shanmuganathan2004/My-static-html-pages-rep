@@ -1,0 +1,6 @@
+box-shadow: 0px 50px 5px 0px rgba(0, 0, 0, 0.15);
+background-color: #f4e4d8;
+border-radius: 8px;
+  padding: 20px;
+  width: 30%;
+background-color: #f4e4d8;
