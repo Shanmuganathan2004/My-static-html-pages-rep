@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    #todo-form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    #todo-input {
+      padding: 10px;
+      width: 300px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      font-size: 16px;
+    }
+    #todo-form button {
+      padding: 10px 20px;
+      margin-left: 10px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    #todo-form button:hover {
+      background-color: #218838;
+    }
+    #todo-list {
+      list-style-type: none;
+      padding: 0;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      margin-bottom: 10px;
+    }
+    .todo-item.completed {
+      text-decoration: line-through;
+      color: #888;
+    }
+    .todo-item button {
+      background-color: #dc3545;
+      color: white;
+      border: none;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    .todo-item button:hover {
+      background-color: #c82333;
+    }
+  </style>
+</head>
+<body>
+  <h1>To-Do App</h1>
+  <form id="todo-form">
+    <input type="text" id="todo-input" placeholder="Add a new to-do" required>
+    <button type="submit">Add</button>
+  </form>
+  <ul id="todo-list"></ul>
+
+  <script>
+    // Function to create a new to-do item
+    function createTodoItem(text) {
+      const li = document.createElement('li');
+      li.className = 'todo-item';
+
+      const span = document.createElement('span');
+      span.textContent = text;
+
+      const doneButton = document.createElement('button');
+      doneButton.textContent = 'Done';
+      doneButton.addEventListener('click', () => {
+        li.classList.toggle('completed');
+      });
+
+      const deleteButton = document.createElement('button');
+      deleteButton.textContent = 'Delete';
+      deleteButton.addEventListener('click', () => {
+        li.remove();
+      });
+
+      li.appendChild(span);
+      li.appendChild(doneButton);
+      li.appendChild(deleteButton);
+
+      return li;
+    }
+
+    // Handle form submission
+    document.getElementById('todo-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('todo-input');
+      const text = input.value.trim();
+
+      if (text !== '') {
+        const todoItem = createTodoItem(text);
+        document.getElementById('todo-list').appendChild(todoItem);
+        input.value = '';
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Winter To-Do App</title>
+  <style>
+    /* Winter-themed styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 10px;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: linear-gradient(135deg, #0a2e38, #1b3a4b);
+      color: #fff;
+    }
+
+    /* Natural Full Moon */
+    .moon {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 60px;
+      height: 60px;
+      background: #f8f8f8;
+      border-radius: 50%;
+      box-shadow: 0 0 30px rgba(255, 255, 255, 0.6);
+      z-index: 1;
+    }
+
+    /* Realistic Snowfall Animation */
+    @keyframes fall {
+      0% { transform: translateY(-10vh); }
+      100% { transform: translateY(110vh); }
+    }
+
+    .snowflake {
+      position: absolute;
+      color: #fff;
+      font-size: 18px;
+      animation: fall linear infinite;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    /* Christmas Trees */
+    .tree {
+      position: absolute;
+      bottom: 100px;
+      font-size: 40px;
+      z-index: 3;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Snow Bed */
+    .snow-bed {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 120px;
+      background: #f0f8ff;
+      z-index: 3;
+      box-shadow: 0 -5px 20px rgba(255, 255, 255, 0.2);
+    }
+
+    /* App Interface */
+    .app-container {
+      position: relative;
+      z-index: 4;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 28px;
+      margin: 20px 0;
+      font-family: 'Georgia', serif;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+
+    #todo-form {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+      gap: 10px;
+    }
+
+    #todo-input {
+      padding: 12px;
+      width: 70%;
+      border: 1px solid #90caf9;
+      border-radius: 8px;
+      font-size: 16px;
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    #todo-form button {
+      padding: 12px 20px;
+      background: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background 0.3s ease;
+    }
+
+    #todo-form button:hover {
+      background: #c0392b;
+    }
+
+    #todo-list {
+      list-style: none;
+      padding: 0;
+      max-width: 90%;
+      margin: 0 auto;
+    }
+
+    .todo-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px;
+      margin: 8px 0;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      color: #2c3e50;
+    }
+
+    .todo-item.completed {
+      text-decoration: line-through;
+      opacity: 0.7;
+    }
+
+    .todo-item button {
+      padding: 6px 12px;
+      margin-left: 8px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: opacity 0.3s ease;
+    }
+
+    .todo-item button.delete {
+      background: #e74c3c;
+      color: white;
+    }
+
+    .todo-item button.done {
+      background: #2ecc71;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <!-- Natural Moon -->
+  <div class="moon"></div>
+
+  <!-- Christmas Trees -->
+  <div class="tree" style="left: 10%">🎄</div>
+  <div class="tree" style="left: 30%">🎄</div>
+  <div class="tree" style="left: 70%">🎄</div>
+  <div class="tree" style="left: 90%">🎄</div>
+
+  <!-- Snow Bed -->
+  <div class="snow-bed"></div>
+
+  <!-- App Content -->
+  <div class="app-container">
+    <h1>Winter To-Do App</h1>
+    <form id="todo-form">
+      <input type="text" id="todo-input" placeholder="Add a new task" required>
+      <button type="submit">Add</button>
+    </form>
+    <ul id="todo-list"></ul>
+  </div>
+
+  <script>
+    // Snowfall System
+    function createSnow() {
+      const container = document.body;
+      for (let i = 0; i < 50; i++) {
+        const flake = document.createElement('div');
+        flake.className = 'snowflake';
+        flake.innerHTML = '❄';
+        flake.style.left = `${Math.random() * 100}%`;
+        flake.style.animationDuration = `${Math.random() * 3 + 5}s`;
+        flake.style.animationDelay = `${Math.random() * 5}s`;
+        container.appendChild(flake);
+      }
+    }
+
+    // To-Do System
+    function createTodoItem(text) {
+      const li = document.createElement('li');
+      li.className = 'todo-item';
+
+      const content = document.createElement('span');
+      content.textContent = text;
+
+      const doneBtn = document.createElement('button');
+      doneBtn.className = 'done';
+      doneBtn.textContent = '✓';
+      doneBtn.onclick = () => li.classList.toggle('completed');
+
+      const deleteBtn = document.createElement('button');
+      deleteBtn.className = 'delete';
+      deleteBtn.textContent = '✕';
+      deleteBtn.onclick = () => li.remove();
+
+      li.append(content, doneBtn, deleteBtn);
+      return li;
+    }
+
+    document.getElementById('todo-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const input = document.getElementById('todo-input');
+      const text = input.value.trim();
+      if (text) {
+        document.getElementById('todo-list').appendChild(createTodoItem(text));
+        input.value = '';
+      }
+    });
+
+    // Initialize
+    createSnow();
+  </script>
+</body>
+</html>
